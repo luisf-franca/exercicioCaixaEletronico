@@ -1,0 +1,33 @@
+import javax.swing.JOptionPane;
+
+class Main {
+  public static void main(String[] args) {
+
+    Integer senha;
+    Double saque;
+    Double saldo;
+    Double deposito;
+    Integer operacao;
+
+    JOptionPane.showMessageDialog(null, "Insira o seu cartão");
+    senha = Integer.parseInt(JOptionPane.showInputDialog("Digite sua senha de 4 digitos: "));
+    operacao = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 para saque ou 2 para depósito"));
+
+    if (operacao == 1) {
+      saque = Double.parseDouble(JOptionPane.showInputDialog("Digite o valor que você deseja sacar: "));
+      saldo = 1000d;
+
+      if (saque <= saldo) {
+        JOptionPane.showMessageDialog(null, "Saque efetuado com sucesso!");
+        JOptionPane.showMessageDialog(null, "Seu saldo restante é: " + "R$" + (1000 - saque));
+      } else {
+        JOptionPane.showMessageDialog(null, "Saldo insuficiente");
+        JOptionPane.showMessageDialog(null, "Seu saldo atual é R$1000,00");
+      }
+    } else if (operacao == 2) {
+      deposito = Double.parseDouble(JOptionPane.showInputDialog("Insira o valor desejado para depositar"));
+      JOptionPane.showMessageDialog(null, "Depósito efetuado com sucesso!");
+      JOptionPane.showMessageDialog(null, "Seu saldo atual é: " + "R$" + (1000 + deposito));
+    }
+  }
+}
